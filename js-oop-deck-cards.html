@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>JS Assignemnt</title>
+
+</head>
+<body>
+<script>
+
+var suits= ["club", "diamonds", "heart", "spade"];
+var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+var cards = [];
+
+for (var i=0; i < suits.length; i++){
+	for (var j=0; j < num.length; j++){
+  	cards.push( suits[i] + num[j] );
+	}
+} 
+console.log(cards);
+var pick = Math.floor(Math.random()*cards.length);
+console.log(pick);
+console.log(cards[pick]);
+console.log(cards.splice(pick));
+console.log(cards);
+
+for(var index in cards){
+console.log(cards[index]);
+//   cards.splice(0, 0, cards[index]);
+// console.log(cards);
+}
+cards.splice(0, 0, cards[index]);
+console.log(cards);
+
+</script>
+</body>
+</html>

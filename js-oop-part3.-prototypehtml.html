@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>JS Assignemnt</title>
+</head>
+<body>
+<script>
+
+function Vehicle(name, number_wheels, number_passengers, speed){
+	this.name = name;
+	this.number_wheels = number_wheels;
+	this.number_passengers = number_passengers;
+	this.speed = speed;
+
+	var that = this;
+	var distance_travelled = 0;
+  this.distance_travelled = distance_travelled;
+	this.updateDistanceTravelled = function(){
+		this.distance_travelled += that.speed;
+		return this.distance_travelled;
+	};
+	this.vin =function(){
+		var alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",  "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+		var x =  alpha [ Math.floor( Math.random() * alpha.length ) ];
+		var num1 =  Math.floor( Math.random() * 10 );
+		var num2 =  Math.floor( Math.random() * 10 ); 
+		var num3 =  Math.floor( Math.random() * 10 ); 
+		var num4 =  Math.floor( Math.random() * 10 ); 
+		var num5 =  Math.floor( Math.random() * 10 ); 
+		var num6 =  Math.floor( Math.random() * 10 ); 
+		var num7 =  Math.floor( Math.random() * 10 ); 
+		var vin = num1 + x + num2 + num3 + num4 + num5 + num6 + num7 ;
+		console.log(vin);		
+	}
+
+	return this;
+}
+
+Vehicle.prototype.makeNoise = function() {
+	console.log("This is "+ this.name +"I like to make noise: Wharf! Wharf!");
+}
+Vehicle.prototype.checkMiles = function(){
+	console.log("Checking distance:", this.distance_travelled );
+}
+Vehicle.prototype.move = function(){
+	console.log( "Update distance: ", this.updateDistanceTravelled() );
+}
+var Bike = new Vehicle("Yamaha50", 2, 1, 5);
+Bike.makeNoise = function(){
+	console.log("Ring! Ring!");
+}
+Bike.makeNoise();
+Bike.move();
+Bike.checkMiles();
+
+var Sedan = new Vehicle("SedanX35", 4, 4, 50);
+Sedan.makeNoise = function(){
+	console.log("Honk! Honk!");
+}
+Sedan.makeNoise();
+Sedan.move();
+Sedan.checkMiles();
+Sedan.vin();
+
+var Bus = new Vehicle("Bus88", 4, 15, 20);
+Bus.pickUpPassengers = function(num){
+	this.number_passengers += num;
+	console.log("total passengers to pick up: " + this.number_passengers);
+}
+Bus.pickUpPassengers(29);
+Bus.move();
+Bus.checkMiles();
+
+
+</script>
+</body>
+</html>

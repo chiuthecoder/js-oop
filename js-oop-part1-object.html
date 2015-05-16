@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>JS Assignemnt </title>
+
+</head>
+<body>
+<script>
+
+function vehicleConstructor(name, number_wheels, number_passengers){
+	var vehicle = {};
+	vehicle.name = name;
+	vehicle.number_wheels = number_wheels;
+	vehicle.number_passengers = number_passengers;
+	vehicle.makeNoise = function() {
+		console.log("This is "+ vehicle.name +"I like to make noise: Wharf! Wharf!");
+	}
+	return vehicle;
+}
+
+var Bike = vehicleConstructor("Yamaha50", 2, 1);
+Bike.makeNoise = function(){
+	console.log("Ring! Ring!");
+}
+
+var Sedan = vehicleConstructor("SedanX35", 4, 4);
+Sedan.makeNoise = function(){
+	console.log("Honk! Honk!");
+}
+
+var Bus = vehicleConstructor("Bus88", 4, 20);
+Bus.pickUpPassengers = function(pickUp){
+	// var pickUp = 5;
+	this.number_passengers += pickUp;
+	console.log("total passengers to pick up: " + this.number_passengers);
+}
+Sedan.makeNoise();
+Bike.makeNoise();
+Bus.pickUpPassengers(29);
+
+</script>
+</body>
+</html>
